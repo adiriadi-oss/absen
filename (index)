@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="https://guru.smkymik.com/assets//img/logo.svg" type="image/svg">
+    <link rel="stylesheet" href="https://guru.smkymik.com/assets//css/styles.css">
+    <title>SMK YMIK</title>
+</head>
+
+<body>
+    <nav class="topnav">
+        <div class="logo">
+          <a href="https://guru.smkymik.com/admin"><img src="https://guru.smkymik.com/assets//img/logo.svg" alt=""></a>
+        </div>
+        <div class="top-menu">
+            <i class="fas fa-info-circle"></i>
+        </div>
+    </nav>
+    <section class="full-content">  <section class="full-content">
+    <video id="priview">
+
+    </video>
+    <p style="text-align:center"><strong>
+        </strong> Scan Qr
+      </p>
+    <br>
+    <a href="https://guru.smkymik.com/scanner/camera" class="btn">Ganti Camera</a>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+  <script>
+    let scanner = new Instascan.Scanner({
+      mirror: false,
+      video: document.getElementById('priview'),
+      backgroundScan: false,
+    });
+
+    scanner.addListener('scan', function(result) {
+      window.location.replace(result)
+    })
+
+    Instascan.Camera.getCameras().then(function(cameras) {
+
+      if (cameras.length > 0) {
+        scanner.start(cameras[1]);
+      } else {
+        alert('no camera found');
+      }
+    }).catch(function(e) {
+      alert(e);
+    });
+  </script>
+  </body>
+
+  </html>
