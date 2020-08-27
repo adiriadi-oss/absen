@@ -1,0 +1,15 @@
+{
+  "short_name": "SMK YMIK",
+  "name": "SMK YMIK",
+  "icons": [
+    {
+      "src": "/assets/img/logo.svg",
+      "sizes": "72",
+      "type": "image/svg"
+    }
+  ],
+  "start_url": "/?utm_source=homescreen",
+  "background_color": "#fff",
+  "Theme_color": "#fff",
+  "display": "standalone"
+}
